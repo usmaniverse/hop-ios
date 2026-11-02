@@ -11,6 +11,14 @@ All data is fictional. This project is not based on, and contains no code from, 
 - **Book:** pick a pickup and drop-off from saved places, choose a vehicle class, see a live fare estimate and confirm.
 - **Rides:** browse ride history with status, fare and details, plus a total for completed rides. Pull to refresh.
 
+## Screenshots
+
+<p>
+  <img src="docs/screenshots/book.png" width="250" alt="Booking screen with route, vehicle class and fare estimate">
+  <img src="docs/screenshots/rides.png" width="250" alt="Ride history with fares and status badges">
+  <img src="docs/screenshots/ride-detail.png" width="250" alt="Ride details screen">
+</p>
+
 ## Architecture
 
 ```mermaid
