@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  package-tests:
+    name: Package tests
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run HopKit unit tests
+        run: swift test --package-path Packages/HopKit
+
+  app-build:
+    name: App build
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate Xcode project
+        run: xcodegen generate
+      - name: Build for iOS Simulator
+        run: |
+          xcodebuild build \
+            -project Hop.xcodeproj \
+            -scheme Hop \
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO
